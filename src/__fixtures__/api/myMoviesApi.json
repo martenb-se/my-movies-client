@@ -1,0 +1,186 @@
+{
+  "get": {
+    "/": {"status": 200, "content": [{"id":130,"imdbId":"tt2015381","name":"Guardians of the Galaxy","seen":true,"rating":10},
+      {"id":131,"imdbId":"tt4154796","name":"Avengers: Endgame","seen":false,"rating":0},
+      {"id":132,"imdbId":"tt10872600","name":"Spider-Man: No Way Home","seen":true,"rating":8},
+      {"id":133,"imdbId":"tt1156398","name":"Zombieland","seen":false,"rating":0}]},
+    "/tt2015381": {"status": 200, "content": {"id":130,"imdbId":"tt2015381","name":"Guardians of the Galaxy","seen":true,"rating":10}},
+    "/tt4154796": {"status": 200, "content": {"id":131,"imdbId":"tt4154796","name":"Avengers: Endgame","seen":false,"rating":0}},
+    "/tt10872600": {"status": 200, "content": {"id":132,"imdbId":"tt10872600","name":"Spider-Man: No Way Home","seen":true,"rating":8}},
+    "/tt1156398": {"status": 200, "content": {"id":133,"imdbId":"tt1156398","name":"Zombieland","seen":false,"rating":0}}
+  },
+  "post": {
+    "/": {"status": 201, "content": "Movie is saved successfully"}
+  },
+  "put": {
+    "/tt2015381": {"status": 200, "content": "Movie was updated successfully"},
+    "/tt4154796": {"status": 200, "content": "Movie was updated successfully"},
+    "/tt10872600": {"status": 200, "content": "Movie was updated successfully"},
+    "/tt1156398": {"status": 200, "content": "Movie was updated successfully"},
+    "/tt2015381/rating": {"status": 200, "content": "Movie rating was updated successfully"},
+    "/tt4154796/rating": {"status": 200, "content": "Movie rating was updated successfully"},
+    "/tt10872600/rating": {"status": 200, "content": "Movie rating was updated successfully"},
+    "/tt1156398/rating": {"status": 200, "content": "Movie rating was updated successfully"},
+    "/tt2015381/name": {"status": 200, "content": "Movie name was updated successfully"},
+    "/tt4154796/name": {"status": 200, "content": "Movie name was updated successfully"},
+    "/tt10872600/name": {"status": 200, "content": "Movie name was updated successfully"},
+    "/tt1156398/name": {"status": 200, "content": "Movie name was updated successfully"},
+    "/tt2015381/imdbid": {"status": 200, "content": "Movie IMDB id was updated successfully"},
+    "/tt4154796/imdbid": {"status": 200, "content": "Movie IMDB id was updated successfully"},
+    "/tt10872600/imdbid": {"status": 200, "content": "Movie IMDB id was updated successfully"},
+    "/tt1156398/imdbid": {"status": 200, "content": "Movie IMDB id was updated successfully"},
+    "/tt2015381/seen": {"status": 200, "content": "Movie seen status and rating updated successfully"},
+    "/tt4154796/seen": {"status": 200, "content": "Movie seen status and rating updated successfully"},
+    "/tt10872600/seen": {"status": 200, "content": "Movie seen status and rating updated successfully"},
+    "/tt1156398/seen": {"status": 200, "content": "Movie seen status and rating updated successfully"},
+    "/tt2015381/unseen": {"status": 200, "content": "Movie seen status and rating removed successfully"},
+    "/tt4154796/unseen": {"status": 200, "content": "Movie seen status and rating removed successfully"},
+    "/tt10872600/unseen": {"status": 200, "content": "Movie seen status and rating removed successfully"},
+    "/tt1156398/unseen": {"status": 200, "content": "Movie seen status and rating removed successfully"}
+  },
+  "delete": {
+    "/tt2015381": {"status": 200, "content": "Movie is deleted successfully"},
+    "/tt4154796": {"status": 200, "content": "Movie is deleted successfully"},
+    "/tt10872600": {"status": 200, "content": "Movie is deleted successfully"},
+    "/tt1156398": {"status": 200, "content": "Movie is deleted successfully"}
+  },
+  "error": {
+    "get": {
+      "/": {"500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"}},
+      "/tt2015381": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 404, "error": "Not Found", "path": "/movies/tt2015381"}},
+      "/tt4154796": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 404, "error": "Not Found", "path": "/movies/tt4154796"}},
+      "/tt10872600": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 404, "error": "Not Found", "path": "/movies/tt10872600"}},
+      "/tt1156398": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 404, "error": "Not Found", "path": "/movies/tt1156398"}}
+    },
+    "post": {
+      "/": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "409": "Movie already exists"
+      }
+    },
+    "put": {
+      "/tt2015381": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt4154796": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt10872600": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt1156398": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt2015381/rating": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt4154796/rating": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt10872600/rating": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt1156398/rating": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt2015381/name": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt4154796/name": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt10872600/name": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt1156398/name": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt2015381/imdbid": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt4154796/imdbid": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt10872600/imdbid": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt1156398/imdbid": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt2015381/seen": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt4154796/seen": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt10872600/seen": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt1156398/seen": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt2015381/unseen": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt4154796/unseen": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt10872600/unseen": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt1156398/unseen": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      }
+    },
+    "delete": {
+      "/tt2015381": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt4154796": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt10872600": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      },
+      "/tt1156398": {
+        "500": {"timestamp": "2022-01-01T10:10:10.123+00:00", "status": 500, "error": "Internal Server Error", "path": "/movies"},
+        "404": "Movie not found"
+      }
+    }
+  }
+}

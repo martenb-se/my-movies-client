@@ -1,0 +1,36 @@
+# Alpine
+FROM cypress/included:10.6.0
+
+# Create App Directory in Container
+RUN mkdir -p /opt/my-movies-client
+RUN mkdir -p /opt/my-movies-client/cypress
+RUN mkdir -p /opt/my-movies-client/public
+RUN mkdir -p /opt/my-movies-client/src
+
+# Copy Front-End Source Files
+COPY .env .eslintrc.cjs cypress.config.js index.html package.json vite.config.js vitest.config.js vitest.setup.js /opt/my-movies-client/
+COPY cypress /opt/my-movies-client/cypress
+COPY public /opt/my-movies-client/public
+COPY src /opt/my-movies-client/src
+
+# Change Node Version to the One Used in Development
+# Thanks: https://stackoverflow.com/a/57546198
+ENV NODE_VERSION=18.7.0
+RUN apt install -y curl
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+ENV NVM_DIR=/root/.nvm
+RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
+RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
+RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
+ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
+
+# Install Front-End
+WORKDIR /opt/my-movies-client
+RUN npm install
+
+# Copy Entrypoint Script
+COPY assets/entrypoint.sh /
+
+# Run Tests
+ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
+

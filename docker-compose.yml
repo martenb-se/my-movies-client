@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vuejs/my-movies-client
+    container_name: ${DEV_DOCKER_CONTAINER_NAME}
+    networks:
+      - api-net
+    healthcheck:
+      test: "curl --fail --silent client:3000 | grep \"My Movies\" || exit 1"
+      interval: 45s
+      timeout: 10s
+      retries: 10
+    ports:
+      - "${DEV_CLIENT_PORT}:3000"
+
+networks:
+  api-net:
+    name: dev-my-movies-network-api
+    external: true

@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  unittest:
+    build:
+      context: .
+      dockerfile: Dockerfile.unittest
+    image: vuejs/my-movies-client-unittest
+  e2etest:
+    build:
+      context: .
+      dockerfile: Dockerfile.e2etest
+    image: vuejs/my-movies-client-e2etest
+    networks:
+      - api-net
+    volumes:
+      - ./cypress/videos/docker:/opt/my-movies-client/cypress/videos
+    environment:
+      - DEV_BACKEND_HOST=api # Internal connection to api
+      - DEV_BACKEND_PORT=8080 # Internal port is always 8080
+
+networks:
+  api-net:
+    name: dev-my-movies-network-api
+    external: true
